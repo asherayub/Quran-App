@@ -38,7 +38,7 @@ document.querySelectorAll(".surah__name__btn").forEach((btn) => {
       ).innerHTML = `<h1>${english.data[0].englishName}</h1>`;
       document.querySelector(".english").innerHTML = english.data[0].ayahs
         .map((ayah) => {
-          return `<p>${ayah.text}</p>`;
+          return `<p><span class="ayah__number">${ayah.number}</span>${ayah.text}</p>`;
         })
         .join("");
     });
@@ -49,9 +49,26 @@ document.querySelectorAll(".surah__name__btn").forEach((btn) => {
       ).innerHTML = `<h1>${arabic.data.name}</h1>`;
       document.querySelector(".arabic").innerHTML = arabic.data.ayahs
         .map((ayah) => {
-          return `<p>${ayah.text}</p>`;
+          return `<p><span class="ayah__number">${ayah.number}</span>${ayah.text}</p>`;
         })
         .join("");
     });
   });
 });
+document
+  .querySelectorAll(".english__arabic__language__toggle")
+  .forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      if (e.target.id === "english__btn") {
+        document.querySelector(".english__name").style.display = "block";
+        document.querySelector(".english").style.display = "block";
+        document.querySelector(".arabic__name").style.display = "none";
+        document.querySelector(".arabic").style.display = "none";
+      } else if (e.target.id === "arabic__btn") {
+        document.querySelector(".arabic__name").style.display = "block";
+        document.querySelector(".arabic").style.display = "block";
+        document.querySelector(".english__name").style.display = "none";
+        document.querySelector(".english").style.display = "none";
+      }
+    });
+  });
