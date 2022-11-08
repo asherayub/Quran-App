@@ -38,7 +38,7 @@ document.querySelectorAll(".surah__name__btn").forEach((btn) => {
       ).innerHTML = `<h1>${english.data[0].englishName}</h1>`;
       document.querySelector(".english").innerHTML = english.data[0].ayahs
         .map((ayah) => {
-          return `<p><span class="ayah__number">${ayah.number}</span>${ayah.text}</p>`;
+          return `<p>${ayah.text}<span class="ayah__number">${ayah.number}</span></p>`;
         })
         .join("");
     });

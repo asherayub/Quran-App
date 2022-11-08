@@ -10,11 +10,11 @@ body {
   background: url("./images/background.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
   color: #fff;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .wrapper {
   height: 80vh;
@@ -35,24 +35,23 @@ nav img {
 .show__surah__toggle {
   background-color: #0d0e17;
   width: max-content;
+  height: 40px;
   padding: 0.5rem 1rem;
-  margin-left: auto;
-  border-bottom-left-radius: 0.95rem;
+  border-radius: 0.95rem;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
 }
 .active {
   height: 250px !important;
-  overflow-y: auto !important;
+  /* overflow-y: scroll !important; */
 }
 .surah__names {
   margin-top: 0.5rem;
   padding: 0 1rem;
   height: 0;
-  overflow-y: hidden;
+  overflow-y: scroll;
   transition: height 300ms ease-in-out;
-  overflow-y: hidden !important;
 }
 .surah__names::-webkit-scrollbar {
   display: none;
@@ -81,9 +80,10 @@ nav img {
 }
 .surah__self {
   display: flex;
-  gap: 1rem;
+  padding: 0;
   overflow-y: scroll;
   height: 600px;
+  width: 100%;
 }
 .surah__self * {
   flex: 1;
@@ -95,13 +95,14 @@ nav img {
   margin: 2rem;
 }
 .ayah__number {
-  width: 30px;
-  height: 30px;
+  width: 10px;
+  height: 10px;
   margin: 0.5rem;
   padding: 10px;
   background-color: #000;
   color: #fff;
   border-radius: 50%;
+  font-size: 10px;
 }
 .arabic {
   text-align: right;
@@ -113,9 +114,6 @@ nav img {
   border-radius: 0.92rem;
   position: relative;
   background-color: #0d0e17;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
 }
 .english__arabic__toggle button {
   color: #fff;
@@ -134,8 +132,9 @@ nav img {
 
 .english p,
 .arabic p {
-  background-color: rgba(0, 0, 0, 0.308);
-  border-bottom: 2px solid #000000ae;
+  background-color: #ffffff;
+  color: #000;
+  border: 2px solid #000000ae;
   margin-block: 0.5rem;
   padding: 0.3rem 1rem;
   line-height: 3;
@@ -152,4 +151,16 @@ nav img {
   .arabic p {
     font-size: 1rem;
   }
+  .surah__self{
+    height: 370px;
+  }
+}
+.flex{
+    display: flex;
+    justify-content: center;align-items: center;gap: 1rem;
+}
+@media (max-width:330px) {
+    .flex{
+        flex-direction: column;
+    }
 }
