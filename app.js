@@ -19,37 +19,33 @@ async function getQuranEnglish(id) {
     `https://api.alquran.cloud/v1/surah/${id}/editions/en.asad`
   );
   const englishData = await response.json();
-
-  surahSelfDiv.innerHTML = `
-        <div class="surah__wrapper">
-            <div class="surah__name">
-                <h1>${englishData.data[0].englishName}</h1>
-                <h1>${englishData.data[0].name}</h1>
-            </div>
-                <div class="surah">
-                    ${englishData.data[0].ayahs
-                      .map((ayah) => {
-                        return `<p><span>${ayah.number}</span>. ${ayah.text}</p>`;
-                      })
-                      .join("")}
-                </div>
-        </div>
-    `;
+  return englishData;
 }
 
-async function getQuranArabic(id){
-  const response = await fetch(`https://api.alquran.cloud/v1/surah/${id}`)
-  const arabicData = await response.json()
-  surahSelfDiv.innerHTML = arabicData.data.ayahs.map(ayah => {
-    // return `<p>${ayah.text}</p>`
-    console.log(ayah.text)
-  })
+async function getQuranArabic(id) {
+  const response = await fetch(`https://api.alquran.cloud/v1/surah/${id}`);
+  const arabicData = await response.json();
+  return arabicData;
 }
 
 // getting surah names id
 document.querySelectorAll(".surah__name__btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    // getQuranEnglish(e.target.id);
-    getQuranArabic(e.target.id)
+    getQuranEnglish(e.target.id).then((english) => {
+      document.querySelector(".english").innerHTML = english.data[0].ayahs
+        .map((ayah) => {
+          return `<p><span id="verse no">${ayah.number}</span>. ${ayah.text}</p>`;
+        })
+        .join("");
+    });
+
+    getQuranArabic(e.target.id).then((arabic) => {
+      console.log(arabic);
+      document.querySelector(".arabic").innerHTML = arabic.data.ayahs
+        .map((ayah) => {
+          return `<p><span id="verse no">${ayah.number}</span>. ${ayah.text}</p>`;
+        })
+        .join("");
+    });
   });
 });
