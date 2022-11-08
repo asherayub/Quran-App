@@ -33,6 +33,10 @@ document.querySelectorAll(".surah__name__btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     document.querySelector(".surah__names").classList.toggle("active");
     document.querySelector(".surah__self").style.display = "block";
+    document.querySelector(".loader").style.display = "block";
+    setTimeout(() => {
+      document.querySelector(".loader").style.display = "none";
+    }, 2000);
     getQuranEnglish(e.target.id).then((english) => {
       document.querySelector(
         ".surah__name .english__name"

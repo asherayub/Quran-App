@@ -14,6 +14,7 @@ body {
 .wrapper {
   height: 80vh;
   width: 100vw;
+  position: relative;
 }
 nav {
   width: 100%;
@@ -144,6 +145,9 @@ nav img {
   line-height: 3;
   font-size: 2rem;
 }
+.surah__self:hover {
+  cursor: url("images/cursor.png"), auto;
+}
 .surah__self::-webkit-scrollbar {
   background-color: transparent;
 }
@@ -156,7 +160,7 @@ nav img {
     font-size: 1rem;
   }
   .surah__self {
-    height: 70vh;
+    height: 66vh;
   }
 }
 .flex {
@@ -166,8 +170,35 @@ nav img {
   gap: 1rem;
   margin-top: 0.5rem;
 }
-@media (max-width: 330px) {
-  .flex {
-    flex-direction: column;
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85vh;
+  background-color: #0d0e17;
+  background-image: url("images/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 100;
+  animation: backimage 2s ease-in-out alternate infinite;
+  display: none;
+}
+@keyframes backimage {
+  from {
+    background-position: left;
   }
+  to {
+    background-position: right;
+  }
+}
+.loader h1 {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
 }
