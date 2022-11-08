@@ -202,3 +202,8 @@ nav img {
   font-size: 2rem;
   font-weight: 600;
 }
+@media (max-width: 320px) {
+  .surah__self {
+    height: 60vh;
+  }
+}
