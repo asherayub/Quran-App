@@ -31,19 +31,25 @@ async function getQuranArabic(id) {
 // getting surah names id
 document.querySelectorAll(".surah__name__btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
+    document.querySelector(".surah__names").classList.toggle("active");
     getQuranEnglish(e.target.id).then((english) => {
+      document.querySelector(
+        ".surah__name .english__name"
+      ).innerHTML = `<h1>${english.data[0].englishName}</h1>`;
       document.querySelector(".english").innerHTML = english.data[0].ayahs
         .map((ayah) => {
-          return `<p><span id="verse no">${ayah.number}</span>. ${ayah.text}</p>`;
+          return `<p>${ayah.text}</p>`;
         })
         .join("");
     });
 
     getQuranArabic(e.target.id).then((arabic) => {
-      console.log(arabic);
+      document.querySelector(
+        ".surah__name .arabic__name"
+      ).innerHTML = `<h1>${arabic.data.name}</h1>`;
       document.querySelector(".arabic").innerHTML = arabic.data.ayahs
         .map((ayah) => {
-          return `<p><span id="verse no">${ayah.number}</span>. ${ayah.text}</p>`;
+          return `<p>${ayah.text}</p>`;
         })
         .join("");
     });
