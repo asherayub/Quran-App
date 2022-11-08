@@ -186,7 +186,7 @@ const surahId = [
   { "name":"Adh-Dhuha",
     "id": 93 },
   { "name":"Al-Inshirah",
-    "name": 94 },
+    "id": 94 },
   { "name":"At-Tin",
     "id": 95 },
   { "name":"Al-Alaq",

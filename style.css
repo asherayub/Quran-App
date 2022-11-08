@@ -151,16 +151,18 @@ nav img {
   .arabic p {
     font-size: 1rem;
   }
-  .surah__self{
+  .surah__self {
     height: 370px;
   }
 }
-.flex{
-    display: flex;
-    justify-content: center;align-items: center;gap: 1rem;
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
-@media (max-width:330px) {
-    .flex{
-        flex-direction: column;
-    }
+@media (max-width: 330px) {
+  .flex {
+    flex-direction: column;
+  }
 }
