@@ -7,12 +7,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: url("./images/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat-y;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: #0d0e17;
   color: #fff;
   overflow-x: hidden;
 }
@@ -25,15 +20,20 @@ nav {
   height: 80px;
   display: flex;
   align-items: center;
+  background-color: #000;
+  color: #fff;
 }
 nav img {
   width: 70px;
 }
 .surah__wrapper {
   position: relative;
+  width: 100vw;
+  height: 80vh;
 }
 .show__surah__toggle {
   background-color: #0d0e17;
+  color: #fff;
   width: max-content;
   height: 40px;
   padding: 0.5rem 1rem;
@@ -42,16 +42,17 @@ nav img {
   user-select: none;
   -webkit-user-select: none;
 }
-.active {
-  height: 250px !important;
-  /* overflow-y: scroll !important; */
-}
+
 .surah__names {
+  width: 100vw;
+  position: absolute;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(4px);
   margin-top: 0.5rem;
-  padding: 0 1rem;
   height: 0;
   overflow-y: scroll;
-  transition: height 300ms ease-in-out;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 0.5rem;
 }
 .surah__names::-webkit-scrollbar {
   display: none;
@@ -62,14 +63,13 @@ nav img {
   border: none;
   outline: none;
   text-shadow: 2px 2px 4px #000;
-  text-decoration: underline;
-  padding-inline: 0.3rem;
+  padding: 0.5rem;
   font-weight: 600;
   cursor: pointer;
 }
 .surah__name__btn:hover,
 .surah__name__btn:active {
-  background-color: #0d0e17;
+  text-decoration: underline;
   color: #fff;
   font-weight: 600;
 }
@@ -77,29 +77,33 @@ nav img {
   display: flex;
   justify-content: center;
   gap: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 .surah__self {
-  display: flex;
+  display: none;
   padding: 0;
   overflow-y: scroll;
-  height: 600px;
+  height: 87%;
   width: 100%;
 }
 .surah__self * {
   flex: 1;
   font-size: 1.2rem;
 }
+.active {
+  height: 230px !important;
+}
 .english,
 .arabic {
-  width: 80%;
-  margin: 2rem;
+  width: 100%;
+  /* margin: 2rem; */
 }
 .ayah__number {
   width: 10px;
   height: 10px;
   margin: 0.5rem;
   padding: 10px;
-  background-color: #000;
   color: #fff;
   border-radius: 50%;
   font-size: 10px;
@@ -132,9 +136,9 @@ nav img {
 
 .english p,
 .arabic p {
-  background-color: #ffffff;
-  color: #000;
-  border: 2px solid #000000ae;
+  color: #fff;
+  /* border-top: 2px solid #000000ae; */
+  border-bottom: 0.5rem solid #000000;
   margin-block: 0.5rem;
   padding: 0.3rem 1rem;
   line-height: 3;
@@ -152,7 +156,7 @@ nav img {
     font-size: 1rem;
   }
   .surah__self {
-    height: 370px;
+    height: 70vh;
   }
 }
 .flex {
@@ -160,6 +164,7 @@ nav img {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 @media (max-width: 330px) {
   .flex {

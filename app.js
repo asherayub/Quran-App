@@ -32,6 +32,7 @@ async function getQuranArabic(id) {
 document.querySelectorAll(".surah__name__btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     document.querySelector(".surah__names").classList.toggle("active");
+    document.querySelector(".surah__self").style.display = "block";
     getQuranEnglish(e.target.id).then((english) => {
       document.querySelector(
         ".surah__name .english__name"
